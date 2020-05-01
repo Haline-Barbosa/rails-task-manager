@@ -1,34 +1,34 @@
 class TasksController < ApplicationController
   def index
-    @songs = Song.all
+    @tasks = Task.all
   end
 
   def new
-    @song = Song.new
+    @tasks = Task.new
   end
 
   def create
-    @song = Song.new(params[:song])
-    @song.save!
+    @tasks = Task.new(params[:task])
+    @tasks.save!
   end
 
   def show
-    @song = Song.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def destroy
-    @song = Song.find(params[:id])
-    @song.destroy
+    @tasks = Task.find(params[:id])
+    @tasks.destroy
 
-    redirect_to songs_path
+    redirect_to tasks_path
   end
 
   def edit
-    @song = Song.find(params[:id])
+    @tasks = Task.find(params[:id])
   end
 
   def update
-    @song = Song.find(params[:id])
-    @song.update(params[:song])
+    @tasks = Task.find(params[:id])
+    @tasks.update(params[:task])
   end
 end
